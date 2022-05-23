@@ -1,0 +1,36 @@
+body {
+    background-color: #FDF6EC;
+    color: #4D4646;
+    font-family: 'Play', sans-serif;
+    font-weight: 400;
+    text-align: center;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 6rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+.arrow {
+    font-size: 8rem;
+}
+
+.up {
+    color: #187498;
+}
+
+.left {
+    color: #36AE7C;
+}
+
+.right {
+    color: #EB5353;
+}
+
+.down {
+    color: #F9D923;
+}
