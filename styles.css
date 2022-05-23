@@ -13,6 +13,13 @@ h1 {
 
 h2 {
     font-size: 4rem;
+    padding-bottom: 3rem;
+}
+
+.col {
+
+    height: 15rem;
+    width: 15rem;
 }
 
 .arrow {
