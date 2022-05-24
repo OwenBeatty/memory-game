@@ -3,10 +3,39 @@ var gamePattern = [];
 var userPattern = [];
 var level = 0;
 
-$(document).keydown(function() {
+$(document).keydown(function(e) {
+    var key = e.which;
+    var validKeys = [87, 38, 65, 37, 83, 40, 68, 39];
+
     if (gamePattern.length === 0) {
         nextSequence();
-    }
+    } else if (validKeys.includes(key)){
+        switch (e.which) {
+            case 87:
+            case 38:
+                var userChosenButton = "up";
+                break;
+            case 65:
+            case 37:
+                var userChosenButton = "left";
+                break;
+            case 83:
+            case 40:
+                var userChosenButton = "down";
+                break;
+            case 68:
+            case 39:
+                var userChosenButton = "right";
+                break;
+        }
+
+        userPattern.push(userChosenButton);
+    
+        animateButton(userChosenButton);
+        playSound(userChosenButton);
+
+        checkAnswer();
+    }    
 });
 
 $(".arrow").click(function() {

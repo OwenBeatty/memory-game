@@ -6,24 +6,33 @@ body {
     text-align: center;
 }
 
+header {
+    background-color: #4D4646;
+    color: #FDF6EC;
+    padding: 2%;
+}
+
 h1 {
     font-weight: 700;
-    font-size: 6rem;
+    font-size: 5rem;
 }
 
 h2 {
-    font-size: 4rem;
-    padding-bottom: 3rem;
+    font-size: 3rem;
+}
+
+.container-fluid {
+    padding-top: 2%;
 }
 
 .col {
 
-    height: 15rem;
-    width: 15rem;
+    height: 13rem;
+    width: 13rem;
 }
 
 .arrow {
-    font-size: 8rem;
+    font-size: 11rem;
 }
 
 .up {
