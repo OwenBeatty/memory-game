@@ -1,14 +1,14 @@
 body {
-    background-color: #FDF6EC;
-    color: #4D4646;
+    background-color: #F7F2E7;
+    color: #797A7E;
     font-family: 'Play', sans-serif;
     font-weight: 400;
     text-align: center;
 }
 
 header {
-    background-color: #4D4646;
-    color: #FDF6EC;
+    background-color: #797A7E;
+    color: #F7F2E7;
     padding: 2%;
 }
 
@@ -21,14 +21,23 @@ h2 {
     font-size: 3rem;
 }
 
-.container-fluid {
+.container-buttons {
     padding-top: 2%;
 }
 
-.col {
+.card {
+    background-color: #F7F2E7;
+    color: #797A7E;
+}
+
+.col-button {
 
     height: 11rem;
     width: 11rem;
+}
+
+.number {
+    color: #ff9661;
 }
 
 .arrow {

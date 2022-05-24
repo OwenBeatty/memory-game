@@ -19,25 +19,36 @@
 </head>
 <body>
     <header>
-        <h1>Memory Game</h1>
-        <h2>Press any button to start</h2>
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col"></div>
+                <div class="col-8">
+                    <h1>Memory Game</h1>
+                    <h2>Press any button to start</h2>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">High Score</h4>
+                            <h5 class="card-text"><span class="high-score number"></span></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
     
-    <div class="container-fluid">
-        <div class="row justify-content-center row-cols-3">
-            <div class="col"></div>
-            <div class="col"><i id="up" class="bi bi-arrow-up-circle-fill arrow up"></i></div>
-            <div class="col"></div>
+    <div class="container-fluid container-buttons">
+        <div class="row justify-content-center row-cols-1">
+            <div class="col col-button"><i id="up" class="bi bi-arrow-up-circle-fill arrow up"></i></div>
         </div>
         <div class="row justify-content-center row-cols-3">
-            <div class="col"><i id="left" class="bi bi-arrow-left-circle-fill arrow left"></i></div>
-            <div class="col"></div>
-            <div class="col"><i id="right" class="bi bi-arrow-right-circle-fill arrow right"></i></div>
+            <div class="col col-button"><i id="left" class="bi bi-arrow-left-circle-fill arrow left"></i></div>
+            <div class="col col-button"></div>
+            <div class="col col-button"><i id="right" class="bi bi-arrow-right-circle-fill arrow right"></i></div>
         </div>
-        <div class="row justify-content-center row-cols-3">
-            <div class="col"></div>
+        <div class="row justify-content-center row-cols-1">
             <div class="col"><i id="down" class="bi bi-arrow-down-circle-fill arrow down"></i></div>
-            <div class="col"></div>
         </div>
     </div>
 

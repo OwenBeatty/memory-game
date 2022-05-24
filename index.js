@@ -3,6 +3,12 @@ var gamePattern = [];
 var userPattern = [];
 var level = 0;
 
+if (sessionStorage.getItem("highScore") === null) {
+    sessionStorage.setItem("highScore", 0);
+}
+
+$(".high-score").text(sessionStorage.getItem("highScore"));
+
 $(document).keydown(function(e) {
     var key = e.which;
     var validKeys = [87, 38, 65, 37, 83, 40, 68, 39];
@@ -61,7 +67,7 @@ function nextSequence() {
 
     gamePattern.push(randomChosenButton);
 
-    $("h2").text("Level " + level);
+    $("h2").html("Level <span class='number'>" + level + "</span>");
     level += 1;
 }
 
@@ -80,7 +86,7 @@ function checkAnswer() {
         } 
         
     } else {
-        playSound("gameover");
+        playSound("game-over");
 
         $("h2").text("Game Over, Press Any Key to Restart");
 
@@ -89,6 +95,11 @@ function checkAnswer() {
         // setTimeout(function() {
         //     $("body").removeClass("game-over");
         // }, 200);
+
+        if (level > sessionStorage.getItem("highScore")) {
+            sessionStorage.setItem("highScore", level);
+            $(".high-score").text(sessionStorage.getItem("highScore"));
+        }
 
         gamePattern = [];
         userPattern = [];
