@@ -39,7 +39,9 @@ $(document).keydown(function(e) {
 });
 
 $(".arrow").click(function() {
-    if (gamePattern.length !== 0 && userPattern.length !== gamePattern.length) {
+    if (gamePattern.length === 0) {
+        nextSequence();
+    } else if (gamePattern.length !== 0 && userPattern.length !== gamePattern.length) {
         var userChosenButton = this.id;
         userPattern.push(userChosenButton);
 
