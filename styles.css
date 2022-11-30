@@ -9,16 +9,21 @@ body {
 header {
     background-color: #797A7E;
     color: #F7F2E7;
-    padding: 2%;
+    padding: .5rem;
+}
+
+footer {
+    color: #797A7E;
+    background-color: #797A7E;
 }
 
 h1 {
     font-weight: 700;
-    font-size: 5rem;
+    font-size: calc(2rem + 2vh);
 }
 
 h2 {
-    font-size: 3rem;
+    font-size: calc(1rem + 1vh);
 }
 
 .container-buttons {
@@ -32,8 +37,8 @@ h2 {
 
 .col-button {
 
-    height: 11rem;
-    width: 11rem;
+    height: calc(2rem + 11vh);
+    width: calc(2rem + 11vh);
 }
 
 .number {
@@ -41,7 +46,7 @@ h2 {
 }
 
 .arrow {
-    font-size: 10rem;
+    font-size: calc(1rem + 10vh);
 }
 
 .up {
@@ -58,4 +63,8 @@ h2 {
 
 .down {
     color: #F9D923;
+}
+
+.bottom-nav a, .bottom-nav a:hover {
+    color: #797A7E;
 }

@@ -14,7 +14,7 @@ $(document).keydown(function(e) {
     var validKeys = [87, 38, 65, 37, 83, 40, 68, 39];
 
     if (gamePattern.length === 0) {
-        nextSequence();
+        setTimeout(() => {nextSequence()}, 300);
     } else if (validKeys.includes(key)){
         switch (e.which) {
             case 87:
@@ -46,7 +46,7 @@ $(document).keydown(function(e) {
 
 $(".arrow").click(function() {
     if (gamePattern.length === 0) {
-        nextSequence();
+        setTimeout(() => {nextSequence()}, 300);
     } else if (gamePattern.length !== 0 && userPattern.length !== gamePattern.length) {
         var userChosenButton = this.id;
         userPattern.push(userChosenButton);
@@ -75,7 +75,6 @@ function checkAnswer() {
     var check = userPattern.length - 1;
 
     if (userPattern[check] === gamePattern[check]) {
-        console.log("correct");
 
         if (userPattern.length === gamePattern.length) {
 
@@ -84,17 +83,10 @@ function checkAnswer() {
                 nextSequence();
             }, 750);
         } 
-        
     } else {
         playSound("game-over");
 
-        $("h2").text("Game Over, Press Any Key to Restart");
-
-        // $("body").addClass("game-over");
-
-        // setTimeout(function() {
-        //     $("body").removeClass("game-over");
-        // }, 200);
+        $("h2").text("Game over, press any key to restart");
 
         if (level > sessionStorage.getItem("highScore")) {
             sessionStorage.setItem("highScore", level);
@@ -114,7 +106,6 @@ function playSound(name) {
 }
 
 function animateButton(currentButton) {
-    console.log("test")
     $("#" + currentButton).removeClass("bi-arrow-" + currentButton + "-circle-fill");
     $("#" + currentButton).addClass("bi-arrow-" + currentButton + "-circle");
 
