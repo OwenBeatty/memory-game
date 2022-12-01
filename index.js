@@ -89,7 +89,7 @@ function checkAnswer() {
         $("h2").text("Game over, press any key to restart");
 
         if (level > sessionStorage.getItem("highScore")) {
-            sessionStorage.setItem("highScore", level);
+            sessionStorage.setItem("highScore", (level - 1));
             $(".high-score").text(sessionStorage.getItem("highScore"));
         }
 
