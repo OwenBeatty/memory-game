@@ -3,18 +3,21 @@ var gamePattern = [];
 var userPattern = [];
 var level = 0;
 
-if (sessionStorage.getItem("highScore") === null) {
-    sessionStorage.setItem("highScore", 0);
+//sets the high score to 0 if one isn't found
+if (localStorage.getItem("highScore") === null) {
+    localStorage.setItem("highScore", 0);
 }
 
-$(".high-score").text(sessionStorage.getItem("highScore"));
+$(".high-score").text(localStorage.getItem("highScore"));
 
+//used to check keyboard input
 $(document).keydown(function(e) {
     var key = e.which;
     var validKeys = [87, 38, 65, 37, 83, 40, 68, 39];
 
+    //starts game if one isn't in progress, otherwise checks for valid input (WASD and arrow keys)
     if (gamePattern.length === 0) {
-        setTimeout(() => {nextSequence()}, 300);
+        nextSequence();
     } else if (validKeys.includes(key)){
         switch (e.which) {
             case 87:
@@ -44,9 +47,10 @@ $(document).keydown(function(e) {
     }    
 });
 
+//starts the game if one isn't in progress, checks that the clicked on-screen button is correct
 $(".arrow").click(function() {
     if (gamePattern.length === 0) {
-        setTimeout(() => {nextSequence()}, 300);
+        nextSequence();
     } else if (gamePattern.length !== 0 && userPattern.length !== gamePattern.length) {
         var userChosenButton = this.id;
         userPattern.push(userChosenButton);
@@ -58,6 +62,7 @@ $(".arrow").click(function() {
     }
 });
 
+//sets next sequence in pattern, animates and plays a sound for the next sequence, and increases the current game level
 function nextSequence() {
     var randomNumber = Math.floor(Math.random() * 4);
     var randomChosenButton = buttons[randomNumber];
@@ -71,6 +76,7 @@ function nextSequence() {
     level += 1;
 }
 
+//checks that the user input is correct
 function checkAnswer() {
     var check = userPattern.length - 1;
 
@@ -88,23 +94,25 @@ function checkAnswer() {
 
         $("h2").text("Game over, press any key to restart");
 
-        if (level > sessionStorage.getItem("highScore")) {
-            sessionStorage.setItem("highScore", (level - 1));
-            $(".high-score").text(sessionStorage.getItem("highScore"));
+        if (level > localStorage.getItem("highScore")) {
+            localStorage.setItem("highScore", (level - 1));
+            $(".high-score").text(localStorage.getItem("highScore"));
         }
 
-        gamePattern = [];
+        setTimeout(() => {gamePattern = []}, 300);
         userPattern = [];
         level = 0;
     }
 }
 
+//plays audio based on current button
 function playSound(name) {
     var buttonAudio = new Audio("sounds/" + name + ".wav");
 
     buttonAudio.play();
 }
 
+//animates current button
 function animateButton(currentButton) {
     $("#" + currentButton).removeClass("bi-arrow-" + currentButton + "-circle-fill");
     $("#" + currentButton).addClass("bi-arrow-" + currentButton + "-circle");
