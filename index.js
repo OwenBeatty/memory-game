@@ -8,6 +8,7 @@ if (localStorage.getItem("highScore") === null) {
     localStorage.setItem("highScore", 0);
 }
 
+$(".current-score").text(level);
 $(".high-score").text(localStorage.getItem("highScore"));
 
 //used to check keyboard input
@@ -17,8 +18,10 @@ $(document).keydown(function(e) {
 
     //starts game if one isn't in progress, otherwise checks for valid input (WASD and arrow keys)
     if (gamePattern.length === 0) {
+        level = 1;
+        $(".current-score").text(level-1);
         nextSequence();
-    } else if (validKeys.includes(key)){
+    } else if (validKeys.includes(key) && gamePattern.length !== 0 && userPattern.length !== gamePattern.length){
         switch (e.which) {
             case 87:
             case 38:
@@ -50,6 +53,8 @@ $(document).keydown(function(e) {
 //starts the game if one isn't in progress, checks that the clicked on-screen button is correct
 $(".arrow").click(function() {
     if (gamePattern.length === 0) {
+        level = 1;
+        $(".current-score").text(level-1);
         nextSequence();
     } else if (gamePattern.length !== 0 && userPattern.length !== gamePattern.length) {
         var userChosenButton = this.id;
@@ -85,6 +90,7 @@ function checkAnswer() {
         if (userPattern.length === gamePattern.length) {
 
             setTimeout (function() {
+                $(".current-score").text(level-1);
                 userPattern = [];
                 nextSequence();
             }, 750);
@@ -99,9 +105,8 @@ function checkAnswer() {
             $(".high-score").text(localStorage.getItem("highScore"));
         }
 
-        setTimeout(() => {gamePattern = []}, 300);
-        userPattern = [];
-        level = 0;
+        setTimeout(() => {gamePattern = []}, 1000);
+        setTimeout(() => {userPattern = []}, 1000);
     }
 }
 
