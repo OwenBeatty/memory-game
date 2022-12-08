@@ -42,11 +42,8 @@ $(document).keydown(function(e) {
         }
 
         userPattern.push(userChosenButton);
-    
-        animateButton(userChosenButton);
-        playSound(userChosenButton);
 
-        checkAnswer();
+        checkAnswer(userChosenButton);
     }    
 });
 
@@ -60,10 +57,7 @@ $(".arrow").click(function() {
         var userChosenButton = this.id;
         userPattern.push(userChosenButton);
 
-        animateButton(userChosenButton);
-        playSound(userChosenButton);
-
-        checkAnswer();
+        checkAnswer(userChosenButton);
     }
 });
 
@@ -82,10 +76,12 @@ function nextSequence() {
 }
 
 //checks that the user input is correct
-function checkAnswer() {
+function checkAnswer(userChosenButton) {
     var check = userPattern.length - 1;
 
     if (userPattern[check] === gamePattern[check]) {
+        animateButton(userChosenButton);
+        playSound(userChosenButton);
 
         if (userPattern.length === gamePattern.length) {
 
