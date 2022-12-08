@@ -19,11 +19,16 @@ footer {
 
 h1 {
     font-weight: 700;
-    font-size: calc(2rem + 2vh);
+    font-size: calc(2rem + 2vw);
 }
 
 h2 {
-    font-size: calc(1rem + 1vh);
+    font-size: calc(1rem + 1vw);
+}
+
+h5 {
+    font-size: calc(1rem + .5vw);
+    margin: .5rem;
 }
 
 .container-buttons {
@@ -33,6 +38,10 @@ h2 {
 .card {
     background-color: #F7F2E7;
     color: #797A7E;
+}
+
+.card-body {
+    padding: 0;
 }
 
 .col-button {

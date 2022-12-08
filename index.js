@@ -108,7 +108,7 @@ function checkAnswer(userChosenButton) {
 
 //plays audio based on current button
 function playSound(name) {
-    var buttonAudio = new Audio("sounds/" + name + ".wav");
+    var buttonAudio = new Audio("sounds/" + name + ".mp3");
 
     buttonAudio.play();
 }
